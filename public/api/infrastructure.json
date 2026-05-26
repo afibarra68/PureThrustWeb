@@ -1,0 +1,57 @@
+{
+  "title": "Arquitectura ThrustPure",
+  "subtitle": "El suelo técnico que sostiene cada release target",
+  "layers": [
+    {
+      "id": "edge",
+      "label": "Edge",
+      "nodes": [
+        { "id": "cdn", "name": "CDN", "tech": "Cloudflare", "icon": "globe" },
+        { "id": "waf", "name": "WAF", "tech": "Security", "icon": "shield" }
+      ]
+    },
+    {
+      "id": "ingress",
+      "label": "Ingress",
+      "nodes": [
+        { "id": "gw", "name": "API Gateway", "tech": "Quarkus REST", "icon": "gateway" },
+        { "id": "lb", "name": "Load Balancer", "tech": "K8s Ingress", "icon": "scale" }
+      ]
+    },
+    {
+      "id": "compute",
+      "label": "Compute",
+      "nodes": [
+        { "id": "vt", "name": "Virtual Threads", "tech": "JDK 21", "icon": "thread" },
+        { "id": "svc", "name": "Services", "tech": "Microservices", "icon": "box" }
+      ]
+    },
+    {
+      "id": "data",
+      "label": "Data",
+      "nodes": [
+        { "id": "redis", "name": "Redis", "tech": "Sessions / Cart", "icon": "redis" },
+        { "id": "db", "name": "PostgreSQL", "tech": "Persistent", "icon": "db" }
+      ]
+    },
+    {
+      "id": "release",
+      "label": "Release",
+      "nodes": [
+        { "id": "ci", "name": "CI/CD", "tech": "GitHub Actions", "icon": "pipeline" },
+        { "id": "obs", "name": "Observability", "tech": "Prometheus + OTel", "icon": "chart" }
+      ]
+    }
+  ],
+  "connections": [
+    ["cdn", "gw"],
+    ["waf", "gw"],
+    ["gw", "lb"],
+    ["lb", "vt"],
+    ["vt", "svc"],
+    ["svc", "redis"],
+    ["svc", "db"],
+    ["ci", "lb"],
+    ["obs", "svc"]
+  ]
+}

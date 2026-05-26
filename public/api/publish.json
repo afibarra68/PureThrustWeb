@@ -1,0 +1,42 @@
+{
+  "platformName": "purethrust publish",
+  "tagline": "Incentivos, publicidad de productos y compras en realismo electrónico",
+  "status": "in_progress",
+  "version": "0.1.0",
+  "channels": [
+    {
+      "id": "mobile",
+      "title": "App móvil",
+      "description": "Experiencia en campo: campañas, catálogo y compras desde el dispositivo del usuario o del operador."
+    },
+    {
+      "id": "web",
+      "title": "Web",
+      "description": "Panel y storefront en navegador: gestión de campañas, métricas y flujo de compra alineado con purethrust compras."
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "incentives",
+      "title": "Incentivación",
+      "description": "Programas de recompensa y engagement ligados a interacción con pantallas y compras."
+    },
+    {
+      "id": "ads",
+      "title": "Publicidad de productos",
+      "description": "Campañas y creativos en vallas y pantallas de realismo electrónico (digital signage)."
+    },
+    {
+      "id": "commerce",
+      "title": "Compras",
+      "description": "Descubrimiento y cierre de compra conectado al stack de purethrust compras."
+    }
+  ],
+  "integrations": [
+    "purethrust compras",
+    "purethrust banking gateway",
+    "purethrust parking",
+    "purethrust biometrics",
+    "Release targets"
+  ]
+}

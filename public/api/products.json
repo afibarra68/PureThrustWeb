@@ -1,0 +1,243 @@
+{
+  "sectionTitle": "Productos",
+  "sectionSubtitle": "Seis líneas que empujan cada release target — del patio al board",
+  "brandTitle": "purethrust",
+  "products": [
+    {
+      "id": "parking",
+      "name": "parking",
+      "tagline": "POS móvil: placas, tarifas y cobro en tiempo real",
+      "status": "active",
+      "version": "0.8.0",
+      "icon": "parking",
+      "detailAnchor": "#product-parking",
+      "highlights": [
+        "Arquitectura simplista: bajo demanda, base sólida"
+      ],
+      "description": "Operación de estacionamiento en campo con UX mobile-first. Arquitectura simplista bajo demanda sobre la base sólida de AlParquear (config, caja, recibos, turnos). El stack (Redis, checkout) vive en purethrust compras.",
+      "architecture": {
+        "title": "Arquitectura simplista",
+        "subtitle": "Bajo demanda — ejecución sobre una base sólida",
+        "principles": ["Simplista", "Bajo demanda", "Base sólida"],
+        "layers": [
+          {
+            "id": "field",
+            "label": "Campo",
+            "name": "Operación en patio",
+            "summary": "POS móvil: placas, tarifas y cobro en tiempo real"
+          },
+          {
+            "id": "demand",
+            "label": "Por demanda",
+            "name": "Módulos activables",
+            "summary": "Enciendes solo lo que el parqueadero necesita — sin sobrecarga inicial"
+          },
+          {
+            "id": "core",
+            "label": "Base sólida",
+            "name": "Núcleo AlParquear",
+            "summary": "Configuración, tarifas, consecutivos, caja y reglas — operación estable en admin y campo"
+          },
+          {
+            "id": "admin",
+            "label": "Gestión",
+            "name": "AlParquear",
+            "summary": "Administración global, caja, recibos, turnos y configuración"
+          }
+        ]
+      },
+      "integration": {
+        "name": "AlParquear",
+        "description": "Sistema Integral de Gestión de Parqueaderos",
+        "website": {
+          "label": "Ver plataforma AlParquear",
+          "url": "https://www.alparquear.com/",
+          "variant": "ghost"
+        },
+        "clientLogin": {
+          "label": "¿Eres cliente? Accede al panel",
+          "url": "https://admin.alparquear.com/auth/login?returnUrl=%2Fadministration%2Fdashboard",
+          "variant": "primary"
+        }
+      }
+    },
+    {
+      "id": "compras",
+      "name": "compras",
+      "tagline": "Carrito Redis / sesión y checkout virtual threads",
+      "status": "in_progress",
+      "version": "0.9.0",
+      "icon": "compras",
+      "detailAnchor": "#product-compras",
+      "highlights": [
+        "Carrito Redis / sesión",
+        "Checkout virtual threads",
+        "Estado optimista y rollback",
+        "Orquestación /api/pay en JDK 21"
+      ],
+      "description": "Sesión de compra y cobro del stack purethrust: carrito en Redis (userHash, create-cart, add/remove) y checkout con virtual threads para alta concurrencia en patio.",
+      "architecture": {
+        "title": "Sesión y cobro",
+        "subtitle": "Base sólida del stack — independiente del parqueo y de biometría",
+        "principles": ["Sesión Redis", "Virtual threads", "Alta concurrencia"],
+        "layers": [
+          {
+            "id": "session",
+            "label": "Sesión",
+            "name": "Carrito Redis / sesión",
+            "summary": "userHash, create-cart, add/remove con update optimista y rollback"
+          },
+          {
+            "id": "checkout",
+            "label": "Cobro",
+            "name": "Checkout virtual threads",
+            "summary": "Orquestación /api/pay en JDK 21 — sin bloquear operación en patio"
+          },
+          {
+            "id": "gateway",
+            "label": "API",
+            "name": "Gateway Quarkus",
+            "summary": "Expone carrito y pago al frontend y a purethrust parking"
+          }
+        ]
+      }
+    },
+    {
+      "id": "banking",
+      "name": "banking gateway",
+      "tagline": "Servicios de incentivo de compras y orquestación de pagos",
+      "status": "in_progress",
+      "version": "0.1.0",
+      "icon": "banking",
+      "detailAnchor": "#product-banking",
+      "highlights": [
+        "Incentivo de compras (cashback, descuentos, recompensas)",
+        "Orquestación hacia adquirentes y billeteras",
+        "Libro de puntos y cupones auditable",
+        "Enlaza publish, compras y checkout"
+      ],
+      "description": "Gateway bancario del stack purethrust: servicios de incentivo de compras que aplican beneficios en el cierre de venta y orquestan pagos sin reemplazar purethrust compras. En proceso.",
+      "architecture": {
+        "title": "Banking gateway",
+        "subtitle": "Incentivos de compra — capa entre campañas y cobro",
+        "principles": ["Incentivos", "Pagos", "Auditoría"],
+        "layers": [
+          {
+            "id": "incentives",
+            "label": "Incentivos",
+            "name": "Reglas y recompensas",
+            "summary": "Cashback, cupones y programas ligados a campañas y canales"
+          },
+          {
+            "id": "orchestration",
+            "label": "Pagos",
+            "name": "Orquestación",
+            "summary": "Autorización y captura vía gateway; checkout sigue en purethrust compras"
+          },
+          {
+            "id": "ledger",
+            "label": "Libro",
+            "name": "Saldos y liquidación",
+            "summary": "Movimientos de incentivos conciliados con compras cerradas"
+          }
+        ]
+      }
+    },
+    {
+      "id": "biometrics",
+      "name": "biometrics",
+      "tagline": "Gate biométrico: ningún target avanza a producción sin verificación",
+      "status": "in_progress",
+      "version": "0.1.0",
+      "icon": "biometrics",
+      "detailAnchor": "#product-biometrics",
+      "highlights": [
+        "Rostro, huella y liveness",
+        "Token de confianza pre-deploy",
+        "Auditoría inmutable"
+      ],
+      "description": "Gate biométrico para releases: identidad verificada antes de mover un release target. En proceso — sin carrito ni checkout (eso es purethrust compras).",
+      "architecture": {
+        "title": "Gate biométrico",
+        "subtitle": "Verificación antes del deploy — en proceso",
+        "principles": ["purethrust biometrics", "Edge", "Auditoría"],
+        "layers": [
+          {
+            "id": "bio",
+            "label": "Gate",
+            "name": "Verificación biométrica",
+            "summary": "Rostro, huella, liveness → token de confianza y auditoría"
+          },
+          {
+            "id": "release",
+            "label": "Release",
+            "name": "Deploy e infra",
+            "summary": "Release targets y observabilidad desbloqueados tras gate OK"
+          }
+        ]
+      }
+    },
+    {
+      "id": "publish",
+      "name": "publish",
+      "tagline": "Incentivos, publicidad y compras en realismo electrónico",
+      "status": "in_progress",
+      "version": "0.1.0",
+      "icon": "publish",
+      "detailAnchor": "#product-publish",
+      "highlights": [
+        "Incentivación al retail y engagement",
+        "Publicidad de productos en pantallas",
+        "Compras conectadas a purethrust compras",
+        "App móvil y web"
+      ],
+      "description": "Futura app de incentivación ligada al realismo electrónico: publicidad de productos y flujos de compra en vallas y pantallas digitales. Contará con app móvil y web; incentivos y pagos vía purethrust banking gateway; sesión y checkout en purethrust compras.",
+      "architecture": {
+        "title": "Publish — móvil y web",
+        "subtitle": "En proceso — campañas, catálogo y compras en signage",
+        "principles": ["Incentivos", "Signage", "Móvil + Web"],
+        "layers": [
+          {
+            "id": "signage",
+            "label": "Pantallas",
+            "name": "Realismo electrónico",
+            "summary": "Vallas y digital signage: creativos, productos y métricas de impacto"
+          },
+          {
+            "id": "incentives",
+            "label": "Incentivos",
+            "name": "Campañas y recompensas",
+            "summary": "Programas que enlazan visualización en pantalla con acción y compra"
+          },
+          {
+            "id": "mobile",
+            "label": "Móvil",
+            "name": "App móvil",
+            "summary": "Experiencia en dispositivo: descubrir, incentivar y comprar"
+          },
+          {
+            "id": "web",
+            "label": "Web",
+            "name": "Web",
+            "summary": "Gestión de campañas, catálogo y storefront en navegador"
+          }
+        ]
+      }
+    },
+    {
+      "id": "video",
+      "name": "video recognizing",
+      "tagline": "Visión por computadora para flujos, placas y eventos",
+      "status": "in_execution",
+      "version": "0.1.0",
+      "icon": "video",
+      "detailAnchor": "#product-video",
+      "highlights": [
+        "Reconocimiento en edge",
+        "Streams RTSP / WebRTC",
+        "Alertas ligadas a release gates"
+      ],
+      "description": "Motor de video recognizing para automatizar validaciones visuales en parqueo, perímetro y QA de releases — sin bloquear el event loop del patio."
+    }
+  ]
+}

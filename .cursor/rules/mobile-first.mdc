@@ -1,0 +1,13 @@
+---
+description: PureThrust mobile-first layout and CSS conventions
+globs: "**/*.{tsx,css}"
+alwaysApply: false
+---
+
+# Mobile-first (PureThrust)
+
+- Base styles target **320px–480px** width; enhance at `min-width: 768px` and `1024px`.
+- Use CSS variables from `src/styles/tokens.css` for color, spacing, radius.
+- Touch targets ≥ 44px; no hover-only critical actions.
+- Diagram and cards stack vertically on mobile; horizontal layout only from `md` breakpoint.
+- Prefer `rem` and `clamp()` for typography.

@@ -1,0 +1,30 @@
+{
+  "platformName": "purethrust compras",
+  "tagline": "Carrito Redis / sesión y checkout virtual threads",
+  "status": "in_progress",
+  "version": "0.9.0",
+  "executionStack": {
+    "title": "Stack de sesión y cobro",
+    "subtitle": "purethrust compras — no de purethrust parking",
+    "items": [
+      {
+        "id": "redis-cart",
+        "title": "Carrito Redis / sesión",
+        "description": "Sesión en Redis (userHash, create-cart, add/remove). Frontend VThreadsCart con estado optimista y rollback."
+      },
+      {
+        "id": "checkout-vt",
+        "title": "Checkout virtual threads",
+        "description": "Quarkus + JDK 21: orquestación de pago (/api/pay) con virtual threads para no bloquear operación en patio."
+      }
+    ]
+  },
+  "integrations": [
+    "purethrust parking",
+    "purethrust banking gateway",
+    "purethrust publish",
+    "API Gateway Quarkus",
+    "Redis",
+    "Observability OTel"
+  ]
+}

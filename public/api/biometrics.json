@@ -1,0 +1,75 @@
+{
+  "platformName": "purethrust biometrics",
+  "tagline": "Gate biométrico: ningún target avanza a producción sin verificación",
+  "status": "in_progress",
+  "version": "0.1.0",
+  "capabilities": [
+    {
+      "id": "cap-face",
+      "modality": "face",
+      "title": "Reconocimiento facial",
+      "description": "Match 1:1 contra plantilla cifrada en edge; umbrales ajustables por entorno."
+    },
+    {
+      "id": "cap-fp",
+      "modality": "fingerprint",
+      "title": "Huella dactilar",
+      "description": "Captura móvil NFC/óptica; template ISO compliant sin almacenar imagen cruda."
+    },
+    {
+      "id": "cap-live",
+      "modality": "liveness",
+      "title": "Prueba de vida",
+      "description": "Anti-spoofing pasivo + challenge activo para desbloquear pipelines críticos."
+    },
+    {
+      "id": "cap-voice",
+      "modality": "voice",
+      "title": "Voz (opcional)",
+      "description": "Verificación por voz para soporte remoto y aprobaciones hands-free."
+    }
+  ],
+  "flow": [
+    {
+      "id": "step-capture",
+      "order": 1,
+      "title": "Captura",
+      "description": "SDK móvil o web captura biometría con consentimiento explícito.",
+      "icon": "scan"
+    },
+    {
+      "id": "step-enroll",
+      "order": 2,
+      "title": "Enrolamiento",
+      "description": "Template hash en HSM; sin PII en logs de aplicación.",
+      "icon": "vault"
+    },
+    {
+      "id": "step-verify",
+      "order": 3,
+      "title": "Verificación",
+      "description": "Score + decisión en <300ms; auditoría inmutable.",
+      "icon": "check"
+    },
+    {
+      "id": "step-token",
+      "order": 4,
+      "title": "Token de confianza",
+      "description": "JWT de sesión biométrica ligado a userHash y ventana de release.",
+      "icon": "key"
+    },
+    {
+      "id": "step-gate",
+      "order": 5,
+      "title": "Gate release / infra",
+      "description": "Desbloquea deploy e infra solo si verificación OK.",
+      "icon": "gate"
+    }
+  ],
+  "integrations": [
+    "Release targets",
+    "API Gateway Quarkus",
+    "purethrust compras",
+    "Observability OTel"
+  ]
+}

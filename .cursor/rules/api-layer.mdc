@@ -1,0 +1,12 @@
+---
+description: API fetch and readonly types for PureThrust data
+globs: "src/{services,hooks,types}/**/*"
+alwaysApply: false
+---
+
+# API layer
+
+- All HTTP via `src/services/api.ts` (`fetchApi<T>`).
+- Types in `src/types/` use `readonly`; map JSON in services, not in JSX.
+- Hooks (`useReleases`, `useInfrastructure`) expose `{ data, error, isLoading }`.
+- Mock data lives in `public/api/` until `VITE_API_BASE` points to a real backend.

@@ -1,0 +1,39 @@
+{
+  "platformName": "purethrust banking gateway",
+  "tagline": "Servicios de incentivo de compras y orquestación de pagos",
+  "status": "in_progress",
+  "version": "0.1.0",
+  "services": {
+    "title": "Servicios de incentivo de compras",
+    "subtitle": "Capa entre campañas, checkout y medios de pago",
+    "items": [
+      {
+        "id": "incentive-rules",
+        "title": "Reglas de incentivo",
+        "description": "Cashback, descuentos y recompensas aplicables por campaña, producto o canal (publish, parking, web)."
+      },
+      {
+        "id": "purchase-rewards",
+        "title": "Incentivo en compra",
+        "description": "Acreditación y liquidación de beneficios al cerrar una compra en purethrust compras."
+      },
+      {
+        "id": "payment-orchestration",
+        "title": "Orquestación de pagos",
+        "description": "Gateway hacia adquirentes y billeteras: autorización, captura y conciliación sin duplicar el checkout."
+      },
+      {
+        "id": "ledger",
+        "title": "Libro de incentivos",
+        "description": "Saldo de puntos, cupones y movimientos auditables para operadores y partners."
+      }
+    ]
+  },
+  "integrations": [
+    "purethrust compras",
+    "purethrust publish",
+    "purethrust parking",
+    "API Gateway Quarkus",
+    "Release targets"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "brand": "ThrustPure",
+  "domain": "thrustpure.com",
+  "pivot": "Release targets con tracción real",
+  "updatedAt": "2026-05-21",
+  "targets": [
+    {
+      "id": "rel-2026-q2",
+      "name": "Platform Core v1",
+      "version": "1.0.0",
+      "status": "in_progress",
+      "eta": "2026-06-30",
+      "highlights": ["API gateway estable", "Observabilidad base", "Redis session cart"]
+    },
+    {
+      "id": "rel-2026-q3",
+      "name": "Edge & Scale",
+      "version": "1.1.0",
+      "status": "planned",
+      "eta": "2026-09-15",
+      "highlights": ["CDN global", "Autoscaling K8s", "SLO 99.9%"]
+    },
+    {
+      "id": "rel-2026-q4",
+      "name": "Enterprise Suite",
+      "version": "2.0.0",
+      "status": "planned",
+      "eta": "2026-12-01",
+      "highlights": ["Multi-tenant", "SSO", "Audit trail"]
+    }
+  ]
+}
