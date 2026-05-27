@@ -13,6 +13,10 @@ interface ProductStatusBadgeProps {
 }
 
 export function ProductStatusBadge({ status }: ProductStatusBadgeProps) {
+  if (status === 'in_progress') {
+    return null;
+  }
+
   return (
     <span className={`product-badge product-badge--${status}`}>{LABELS[status]}</span>
   );

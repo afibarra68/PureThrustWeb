@@ -1,0 +1,203 @@
+/* Hero plataforma — /plataforma */
+
+.platform-hero {
+  position: relative;
+  padding: var(--pt-space-xl) 0 calc(var(--pt-space-xl) * 1.25);
+  overflow: hidden;
+}
+
+.platform-hero__glow {
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  width: min(140%, 52rem);
+  height: 70%;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(ellipse 55% 50% at 30% 40%, rgba(230, 0, 0, 0.2), transparent 70%),
+    radial-gradient(ellipse 45% 40% at 75% 55%, rgba(56, 189, 248, 0.08), transparent 65%);
+  pointer-events: none;
+}
+
+.platform-hero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--pt-space-xl);
+  align-items: center;
+}
+
+.platform-hero__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--pt-space-sm);
+}
+
+.platform-hero__brand .logo--wordmark {
+  max-width: min(100%, 420px);
+  width: 100%;
+  height: auto;
+}
+
+.platform-hero__domain {
+  margin: 0;
+  font-size: 0.78rem;
+  font-family: var(--pt-mono);
+  color: var(--pt-accent);
+  letter-spacing: 0.04em;
+}
+
+.platform-hero__pillars {
+  margin: var(--pt-space-xs) 0 0;
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pt-pure);
+  font-family: var(--pt-mono);
+}
+
+.platform-hero__panel {
+  padding: var(--pt-space-lg);
+  border-radius: calc(var(--pt-radius) + 4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 28, 45, 0.65);
+  box-shadow: var(--pt-shadow);
+  backdrop-filter: blur(16px);
+}
+
+.platform-hero__eyebrow {
+  margin: 0 0 var(--pt-space-xs);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pt-ice);
+  font-family: var(--pt-mono);
+}
+
+.platform-hero__title {
+  margin: 0;
+  font-size: clamp(1.35rem, 4.5vw, 1.85rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  color: var(--pt-pure);
+  text-wrap: balance;
+}
+
+.platform-hero__lead {
+  margin: var(--pt-space-sm) 0 var(--pt-space-lg);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--pt-pure-muted);
+  max-width: 42ch;
+}
+
+.platform-hero__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pt-space-sm);
+}
+
+.platform-hero__link {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 0.15rem 0.75rem;
+  padding: var(--pt-space-md) var(--pt-space-md);
+  border-radius: var(--pt-radius-sm);
+  border: 1px solid var(--pt-border);
+  background: rgba(3, 10, 20, 0.55);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.platform-hero__link:hover {
+  border-color: rgba(230, 0, 0, 0.45);
+  background: rgba(230, 0, 0, 0.08);
+  transform: translateX(4px);
+  box-shadow: var(--pt-glow);
+}
+
+.platform-hero__link:focus-visible {
+  outline: 2px solid var(--pt-ice);
+  outline-offset: 2px;
+}
+
+.platform-hero__link--primary {
+  border-color: rgba(230, 0, 0, 0.55);
+  background: linear-gradient(
+    135deg,
+    rgba(230, 0, 0, 0.22),
+    rgba(15, 28, 45, 0.85)
+  );
+}
+
+.platform-hero__link--primary:hover {
+  border-color: var(--pt-accent-2);
+  background: linear-gradient(
+    135deg,
+    rgba(230, 0, 0, 0.32),
+    rgba(15, 28, 45, 0.9)
+  );
+}
+
+.platform-hero__link-label {
+  grid-column: 1;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--pt-text);
+}
+
+.platform-hero__link-desc {
+  grid-column: 1;
+  font-size: 0.82rem;
+  color: var(--pt-muted);
+  line-height: 1.4;
+}
+
+.platform-hero__link-arrow {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-size: 1.1rem;
+  color: var(--pt-accent-2);
+  transition: transform 0.2s ease;
+}
+
+.platform-hero__link:hover .platform-hero__link-arrow {
+  transform: translateX(3px);
+}
+
+@media (min-width: 768px) {
+  .platform-hero__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: calc(var(--pt-space-xl) * 1.5);
+  }
+
+  .platform-hero__brand .logo--wordmark {
+    max-width: min(100%, 480px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .platform-hero {
+    padding-top: calc(var(--pt-space-xl) * 1.5);
+  }
+
+  .platform-hero__grid {
+    grid-template-columns: 1.1fr 1fr;
+  }
+
+  .platform-hero__brand .logo--wordmark {
+    max-width: min(100%, 520px);
+  }
+}

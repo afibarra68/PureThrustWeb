@@ -1,6 +1,6 @@
 # PureThrust Web — Plan por procesos
 
-Sitio promocional **mobile-first** (React + TS) para **thrustpure.com**: releases, targets de infraestructura y diagrama de arquitectura. Backend desacoplado vía capa `services/api`.
+Sitio promocional **mobile-first** (React + TS) para **purethrust.com**: releases, targets de infraestructura y diagrama de arquitectura. Backend desacoplado vía capa `services/api`.
 
 ## Fases
 
@@ -11,7 +11,7 @@ Sitio promocional **mobile-first** (React + TS) para **thrustpure.com**: release
 | **P2** | UI: Hero, Biometrics, Release Targets, diagrama infra | ✅ En curso |
 | **P3** | Backend real: Supabase / Strapi / Quarkus (env `VITE_API_BASE`) | Pendiente |
 | **P4** | Tablet/desktop: grid 2-col, diagrama horizontal | Pendiente |
-| **P5** | CI, dominio thrustpure.com, assets oficiales de marca | Pendiente |
+| **P5** | CI, dominio purethrust.com, assets oficiales de marca | Pendiente |
 
 ## Proceso de trabajo (para Cursor)
 

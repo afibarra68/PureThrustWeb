@@ -5,7 +5,7 @@ interface LogoProps {
 
 /** Marca compacta "tp" */
 const MARK_SRC = '/logos/pht.png';
-/** Wordmark horizontal thrust.pure */
+/** Wordmark horizontal pure.thrust */
 const WORDMARK_SRC = '/logos/tp.png';
 
 export function Logo({ variant = 'full', size = 36 }: LogoProps) {
@@ -14,7 +14,7 @@ export function Logo({ variant = 'full', size = 36 }: LogoProps) {
       <img
         className="logo logo--mark"
         src={MARK_SRC}
-        alt="ThrustPure"
+        alt="PureThrust"
         width={size}
         height={size}
         decoding="async"
@@ -26,7 +26,7 @@ export function Logo({ variant = 'full', size = 36 }: LogoProps) {
     <img
       className="logo logo--wordmark"
       src={WORDMARK_SRC}
-      alt="thrust.pure"
+      alt="pure.thrust"
       height={size}
       decoding="async"
     />

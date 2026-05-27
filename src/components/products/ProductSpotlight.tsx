@@ -1,3 +1,4 @@
+import { isProductVisible } from '../../config/visibleProducts';
 import { useProducts } from '../../hooks/useProducts';
 import type { Product } from '../../types/products.types';
 import { SectionShell } from '../ui/SectionShell';
@@ -44,7 +45,9 @@ function SpotlightContent({ product }: { product: Product }) {
         {product.integration ? (
           <ProductIntegrationLinks integration={product.integration} />
         ) : null}
-        {product.architecture ? (
+        {product.architecture &&
+        product.id !== 'compras' &&
+        product.id !== 'publish' ? (
           <ProductSimpleArchitecture architecture={product.architecture} />
         ) : null}
         {product.id === 'compras' ? <ProductComprasDetail /> : null}
@@ -70,6 +73,8 @@ function SpotlightContent({ product }: { product: Product }) {
 
 export function ProductSpotlight({ productId }: ProductSpotlightProps) {
   const state = useProducts();
+
+  if (!isProductVisible(productId)) return null;
 
   if (state.status !== 'success') return null;
 

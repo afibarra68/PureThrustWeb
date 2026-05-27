@@ -1,18 +1,31 @@
+import { useMemo } from 'react';
 import { useReleases } from '../../hooks/useReleases';
+import type { ReleaseTarget } from '../../types/releases.types';
 import { SectionShell } from '../ui/SectionShell';
-import { StatusBadge } from '../ui/StatusBadge';
+import { ReleaseCycleRail } from './ReleaseCycleRail';
+
+function sortByOrder(targets: readonly ReleaseTarget[]): ReleaseTarget[] {
+  return [...targets].sort((a, b) => a.order - b.order);
+}
 
 export function ReleaseTargets() {
   const state = useReleases();
+
+  const sortedTargets = useMemo(() => {
+    if (state.status !== 'success') {
+      return [];
+    }
+    return sortByOrder(state.data.targets);
+  }, [state]);
 
   return (
     <SectionShell
       id="releases"
       title="Release targets"
-      subtitle="El pivote operativo: qué se libera, cuándo y con qué tracción"
+      subtitle="En cada proyecto que realizamos, cada lanzamiento es único, con alto impacto en el negocio"
     >
       {state.status === 'loading' ? (
-        <p className="state state--loading">Cargando releases…</p>
+        <p className="state state--loading">Cargando release targets…</p>
       ) : null}
       {state.status === 'error' ? (
         <p className="state state--error" role="alert">
@@ -20,33 +33,7 @@ export function ReleaseTargets() {
         </p>
       ) : null}
       {state.status === 'success' ? (
-        <>
-          {state.data.pivot ? (
-            <p className="release-pivot">{state.data.pivot}</p>
-          ) : null}
-          <p className="meta">
-            Actualizado {state.data.updatedAt} · {state.data.domain}
-          </p>
-          <ul className="release-list">
-            {state.data.targets.map((target) => (
-              <li key={target.id} className="release-card">
-                <div className="release-card__top">
-                  <div>
-                    <h3 className="release-card__name">{target.name}</h3>
-                    <p className="release-card__version">v{target.version}</p>
-                  </div>
-                  <StatusBadge status={target.status} />
-                </div>
-                <p className="release-card__eta">ETA {target.eta}</p>
-                <ul className="release-card__highlights">
-                  {target.highlights.map((h) => (
-                    <li key={h}>{h}</li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </>
+        <ReleaseCycleRail targets={sortedTargets} />
       ) : null}
     </SectionShell>
   );

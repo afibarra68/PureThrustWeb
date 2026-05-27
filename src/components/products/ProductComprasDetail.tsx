@@ -32,14 +32,16 @@ export function ProductComprasDetail() {
         </ul>
       </div>
 
-      <div className="bio-integrations">
-        <h4 className="bio-integrations__label">Integrado con</h4>
-        <ul className="bio-integrations__chips">
-          {state.data.integrations.map((name) => (
-            <li key={name}>{name}</li>
-          ))}
-        </ul>
-      </div>
+      {state.data.integrations && state.data.integrations.length > 0 ? (
+        <div className="bio-integrations">
+          <h4 className="bio-integrations__label">Stack técnico</h4>
+          <ul className="bio-integrations__chips">
+            {state.data.integrations.map((name) => (
+              <li key={name}>{name}</li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
     </div>
   );
 }

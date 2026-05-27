@@ -12,6 +12,9 @@ export interface InfraLayer {
 }
 
 export interface InfrastructurePayload {
+  readonly sectionTitle?: string;
+  readonly sectionSubtitle?: string;
+  readonly orbitTitle?: string;
   readonly title: string;
   readonly subtitle: string;
   readonly layers: readonly InfraLayer[];

@@ -1,0 +1,408 @@
+/* Responsive — mobile y pantallas pequeñas (< 768px) */
+
+/* Safe area (notch / home indicator) */
+@supports (padding: max(0px)) {
+  .header {
+    padding-left: max(var(--pt-space-md), env(safe-area-inset-left));
+    padding-right: max(var(--pt-space-md), env(safe-area-inset-right));
+  }
+
+  .page__main {
+    padding-left: max(var(--pt-space-md), env(safe-area-inset-left));
+    padding-right: max(var(--pt-space-md), env(safe-area-inset-right));
+  }
+
+  .footer--rich,
+  .footer--presale {
+    padding-left: max(var(--pt-space-md), env(safe-area-inset-left));
+    padding-right: max(var(--pt-space-md), env(safe-area-inset-right));
+    padding-bottom: max(var(--pt-space-lg), env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 767px) {
+  .page__main {
+    padding-top: calc(var(--pt-header-h) + var(--pt-space-sm));
+    padding-bottom: var(--pt-space-lg);
+  }
+
+  /* Header */
+  .header__brand {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
+  .header--platform .header__domain,
+  .header--presale .header__domain {
+    display: none;
+  }
+
+  .header__nav {
+    flex-shrink: 0;
+    max-width: min(62vw, 15.5rem);
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+
+  .header__nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header__link {
+    font-size: 0.8125rem;
+    padding: 0.45rem 0.55rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .header--presale .header__link--cta {
+    padding: 0.4rem 0.75rem;
+  }
+
+  .header--presale .header__link-label--long {
+    display: none;
+  }
+
+  .header--presale .header__link-label--short {
+    display: inline;
+  }
+
+  /* Secciones */
+  .section {
+    margin-bottom: calc(var(--pt-space-xl) * 1.1);
+    scroll-margin-top: calc(var(--pt-header-h) + 0.5rem);
+  }
+
+  .section__title {
+    font-size: clamp(1.15rem, 4.5vw, 1.35rem);
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  .section__subtitle {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    max-width: none;
+  }
+
+  .section__head {
+    margin-bottom: var(--pt-space-md);
+  }
+
+  #herramientas-title {
+    font-size: clamp(1rem, 4vw, 1.15rem);
+  }
+
+  .infra-arch-head__subtitle {
+    max-width: none;
+    font-size: 0.875rem;
+  }
+
+  /* Hero plataforma */
+  .platform-hero {
+    padding: var(--pt-space-lg) 0 var(--pt-space-xl);
+  }
+
+  .platform-hero__brand {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .platform-hero__brand .logo--wordmark {
+    max-width: min(100%, 280px);
+  }
+
+  .platform-hero__pillars {
+    font-size: clamp(0.78rem, 2.8vw, 0.9rem);
+    letter-spacing: 0.08em;
+    text-align: center;
+    line-height: 1.45;
+  }
+
+  .platform-hero__panel {
+    padding: var(--pt-space-md);
+  }
+
+  .platform-hero__title {
+    font-size: clamp(1.2rem, 5vw, 1.45rem);
+  }
+
+  .platform-hero__lead {
+    font-size: 0.9rem;
+    max-width: none;
+  }
+
+  .platform-hero__link:hover {
+    transform: none;
+  }
+
+  /* Órbita arquitectura */
+  .arch-orbit {
+    margin-left: calc(-1 * max(var(--pt-space-md), env(safe-area-inset-left, 0px)));
+    margin-right: calc(-1 * max(var(--pt-space-md), env(safe-area-inset-right, 0px)));
+    padding: var(--pt-space-sm) var(--pt-space-xs);
+  }
+
+  .arch-orbit__stage {
+    width: min(100%, 22.5rem);
+    margin-top: var(--pt-space-md);
+    margin-bottom: var(--pt-space-md);
+    --orbit-node-base: 4.65rem;
+    --orbit-radius: clamp(4.35rem, 13.5vw, 5.35rem);
+  }
+
+  /* Release rail */
+  .release-rail__slide {
+    flex: 0 0 min(92vw, 17.5rem);
+  }
+
+  .release-card--phase {
+    min-height: 13rem;
+  }
+
+  .release-card--phase .release-card__name {
+    font-size: 0.95rem;
+  }
+
+  /* Productos */
+  .product-card {
+    padding: var(--pt-space-md) var(--pt-space-sm);
+  }
+
+  .product-line-heading--card .product-line-heading__line {
+    font-size: 1rem;
+  }
+
+  .product-line-heading__tagline {
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  /* Spotlight */
+  .product-spotlight {
+    padding: var(--pt-space-sm);
+  }
+
+  .product-spotlight-title__line {
+    display: block;
+    font-size: 1.05rem;
+  }
+
+  .product-spotlight-title__sep {
+    display: none;
+  }
+
+  .product-spotlight-title__tagline {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+
+  .product-spotlight__desc {
+    font-size: 0.9rem;
+  }
+
+  .product-arch {
+    padding: var(--pt-space-sm);
+  }
+
+  .product-integration__actions .btn {
+    min-height: 48px;
+  }
+
+  /* Bio / publish detail */
+  .bio-capabilities__grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pt-space-sm);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .bio-cap-card {
+    padding: var(--pt-space-sm);
+  }
+
+  .bio-integrations__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  /* Footer */
+  .footer--rich {
+    padding-top: var(--pt-space-xl);
+  }
+
+  .footer__intro {
+    margin-bottom: var(--pt-space-lg);
+    padding-bottom: var(--pt-space-md);
+  }
+
+  .footer__ecosystem-lead {
+    max-width: none;
+    font-size: 0.85rem;
+  }
+
+  .footer__quick-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .footer-platform-card {
+    padding: var(--pt-space-sm);
+  }
+
+  .footer-platform-card__summary,
+  .footer-platform-card__highlights {
+    max-width: none;
+  }
+
+  .footer-platform-card__highlights {
+    font-size: 0.8rem;
+  }
+
+  .footer__bottom {
+    text-align: left;
+  }
+
+  .footer__copy {
+    font-size: 0.75rem;
+    line-height: 1.55;
+  }
+
+  /* Landing */
+  .hero {
+    padding: var(--pt-space-md) var(--pt-space-sm) var(--pt-space-lg);
+    min-height: calc(100dvh - var(--pt-header-h));
+  }
+
+  .hero__brand .logo--wordmark {
+    max-width: min(100%, 220px);
+  }
+
+  .hero__title {
+    font-size: clamp(1.45rem, 6.5vw, 1.85rem);
+  }
+
+  .hero__essence {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+  }
+
+  .hero__launch-card {
+    padding: var(--pt-space-md);
+  }
+
+  .hero__invite {
+    font-size: 1rem;
+  }
+}
+
+/* Teléfonos estrechos */
+@media (max-width: 479px) {
+  :root {
+    --pt-header-h: 3.25rem;
+  }
+
+  .header--platform .logo--mark,
+  .header--presale .logo--mark {
+    width: 28px;
+    height: 28px;
+  }
+
+  .header__nav {
+    max-width: min(58vw, 11.5rem);
+  }
+
+  .header__link {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.45rem;
+  }
+
+  .platform-hero__brand .logo--wordmark {
+    max-width: min(100%, 240px);
+  }
+
+  .arch-orbit__stage {
+    width: min(100%, 19.5rem);
+    --orbit-node-base: 4.25rem;
+    --orbit-radius: clamp(3.95rem, 12vw, 4.75rem);
+  }
+
+  .arch-orbit__hub-line {
+    font-size: 0.34rem;
+  }
+
+  .arch-orbit__hub-line--brand {
+    font-size: 0.36rem;
+  }
+
+  .release-rail__slide {
+    flex: 0 0 92vw;
+  }
+
+  .release-rail__btn {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .footer-platform-card__meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dos columnas de productos en móvil ancho */
+@media (min-width: 480px) and (max-width: 767px) {
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--pt-space-sm);
+  }
+
+  .product-card__cta {
+    font-size: 0.85rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+/* Sin hover en táctil */
+@media (hover: none) {
+  .platform-hero__link:hover,
+  .platform-hero__link:hover .platform-hero__link-arrow {
+    transform: none;
+  }
+
+  .arch-orbit__node:hover {
+    --orbit-push: 0rem;
+  }
+
+  .arch-orbit__node-disc:hover,
+  .arch-orbit__node-disc:focus-visible {
+    width: var(--orbit-node-base, 5.35rem);
+    height: var(--orbit-node-base, 5.35rem);
+    min-width: var(--orbit-node-base, 5.35rem);
+    min-height: var(--orbit-node-base, 5.35rem);
+  }
+}
+
+/* Active states táctil */
+@media (hover: none) {
+  .arch-orbit__node-disc:active {
+    border-color: var(--pt-accent-2);
+    box-shadow: 0 0 0 3px rgba(230, 0, 0, 0.2);
+  }
+
+  .platform-hero__link:active {
+    border-color: rgba(230, 0, 0, 0.45);
+    background: rgba(230, 0, 0, 0.08);
+  }
+}

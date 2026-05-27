@@ -1,4 +1,4 @@
-# ThrustPure Web — Skills & reglas
+# PureThrust Web — Skills & reglas
 
 | Recurso | Ruta |
 |---------|------|

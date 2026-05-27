@@ -1,12 +1,15 @@
 :root {
-  --pt-bg: #070b12;
+  --pt-bg: #030712;
   --pt-surface: #0f1729;
   --pt-surface-2: #162033;
   --pt-border: rgba(148, 163, 184, 0.18);
-  --pt-text: #f1f5f9;
+  --pt-text: #f8fafc;
   --pt-muted: #94a3b8;
+  --pt-pure: #e8f4fc;
+  --pt-pure-muted: #c5d9e8;
+  --pt-ice: #7dd3fc;
   --pt-accent: #e60000;
-  --pt-accent-2: #ff4444;
+  --pt-accent-2: #ff3333;
   --pt-success: #34d399;
   --pt-warn: #fbbf24;
   --pt-radius: 14px;

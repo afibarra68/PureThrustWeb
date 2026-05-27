@@ -1,6 +1,6 @@
 # PureThrust Web
 
-Landing **mobile-first** (React + TypeScript) para **thrustpure.com**: release targets, diagrama de infraestructura y marca ThrustPure.
+Landing **mobile-first** (React + TypeScript) para **purethrust.com**: release targets, diagrama de infraestructura y marca PureThrust.
 
 ## Arranque rápido
 
@@ -32,11 +32,28 @@ Editar sin tocar React:
 - `public/api/biometrics.json` — detalle biométrico (planeación)
 - `public/api/infrastructure.json` — capas del diagrama
 - `public/logos/pht.png` — marca **tp** (header, favicon)
-- `public/logos/tp.png` — wordmark **thrust.pure** (hero)
+- `public/logos/tp.png` — wordmark **pure.thrust** (hero)
 
 ## API real (fase P3)
 
 Definir `VITE_API_BASE` apuntando a Supabase REST, Strapi o tu backend Quarkus. Mantener la misma forma JSON que los archivos mock.
+
+## Formulario de preventa → clientes@thrustpure.com
+
+Sin backend, el envío usa por defecto [FormSubmit](https://formsubmit.co) hacia **clientes@thrustpure.com**.
+
+1. Envía un mensaje de prueba desde la web en producción o preview.
+2. Revisa **clientes@thrustpure.com** y abre el enlace de activación que envía FormSubmit (solo la primera vez).
+3. Los siguientes envíos llegarán directamente a esa bandeja.
+
+Para producción con más control (menos dependencia de activación por correo), configura en `.env`:
+
+| Variable | Servicio |
+|----------|----------|
+| `VITE_WEB3FORMS_ACCESS_KEY` | [Web3Forms](https://web3forms.com) — cuenta con clientes@thrustpure.com |
+| `VITE_FORMSPREE_FORM_ID` | [Formspree](https://formspree.io) — destino clientes@thrustpure.com |
+
+Si defines `VITE_WEB3FORMS_ACCESS_KEY` o `VITE_FORMSPREE_FORM_ID`, tienen prioridad sobre FormSubmit.
 
 ## Scripts
 

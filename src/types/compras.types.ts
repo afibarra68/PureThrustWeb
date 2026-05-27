@@ -16,5 +16,5 @@ export interface ComprasPayload {
   readonly status: import('./products.types').ProductStatus;
   readonly version: string;
   readonly executionStack: ComprasExecutionStack;
-  readonly integrations: readonly string[];
+  readonly integrations?: readonly string[];
 }

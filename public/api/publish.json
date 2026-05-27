@@ -1,42 +1,35 @@
 {
   "platformName": "purethrust publish",
-  "tagline": "Incentivos, publicidad de productos y compras en realismo electrónico",
+  "tagline": "Red social de compras y gestión de contenido",
   "status": "in_progress",
   "version": "0.1.0",
   "channels": [
     {
-      "id": "mobile",
-      "title": "App móvil",
-      "description": "Experiencia en campo: campañas, catálogo y compras desde el dispositivo del usuario o del operador."
+      "id": "content",
+      "title": "Contenido en la red",
+      "description": "Gestiona y publica fotos y artículos visibles para toda la red de compras."
     },
     {
-      "id": "web",
-      "title": "Web",
-      "description": "Panel y storefront en navegador: gestión de campañas, métricas y flujo de compra alineado con purethrust compras."
+      "id": "self",
+      "title": "Self-service del cliente",
+      "description": "El cliente administra su perfil, publicaciones y compras de forma autónoma."
     }
   ],
   "capabilities": [
     {
-      "id": "incentives",
-      "title": "Incentivación",
-      "description": "Programas de recompensa y engagement ligados a interacción con pantallas y compras."
+      "id": "social",
+      "title": "Red social de compras",
+      "description": "Compras en línea con feed, interacción y descubrimiento entre participantes de la red."
     },
     {
-      "id": "ads",
-      "title": "Publicidad de productos",
-      "description": "Campañas y creativos en vallas y pantallas de realismo electrónico (digital signage)."
+      "id": "articles",
+      "title": "Fotos y artículos",
+      "description": "Publicaciones que conectan contenido, catálogo y flujo de compra."
     },
     {
-      "id": "commerce",
-      "title": "Compras",
-      "description": "Descubrimiento y cierre de compra conectado al stack de purethrust compras."
+      "id": "network",
+      "title": "Gestión para la red",
+      "description": "Plataforma para organizar contenido, usuarios y publicaciones de la red."
     }
-  ],
-  "integrations": [
-    "purethrust compras",
-    "purethrust banking gateway",
-    "purethrust parking",
-    "purethrust biometrics",
-    "Release targets"
   ]
 }

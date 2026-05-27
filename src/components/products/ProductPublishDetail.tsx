@@ -23,7 +23,7 @@ export function ProductPublishDetail() {
           {state.data.channels.map((channel) => (
             <li key={channel.id} className="bio-cap-card">
               <span className="bio-cap-card__icon" aria-hidden="true">
-                {channel.id === 'mobile' ? '◫' : '⬚'}
+                {channel.id === 'content' ? '◎' : channel.id === 'self' ? '◇' : '◫'}
               </span>
               <h5>{channel.title}</h5>
               <p>{channel.description}</p>
@@ -44,14 +44,16 @@ export function ProductPublishDetail() {
         </ul>
       </div>
 
-      <div className="bio-integrations">
-        <h4 className="bio-integrations__label">Integrado con</h4>
-        <ul className="bio-integrations__chips">
-          {state.data.integrations.map((name) => (
-            <li key={name}>{name}</li>
-          ))}
-        </ul>
-      </div>
+      {state.data.integrations && state.data.integrations.length > 0 ? (
+        <div className="bio-integrations">
+          <h4 className="bio-integrations__label">Integrado con</h4>
+          <ul className="bio-integrations__chips">
+            {state.data.integrations.map((name) => (
+              <li key={name}>{name}</li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
     </div>
   );
 }

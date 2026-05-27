@@ -1,13 +1,13 @@
 ---
 name: purethrust-web
 description: >-
-  Builds and extends the ThrustPure promotional React TS site (thrustpure.com):
+  Builds and extends the PureThrust promotional React TS site (purethrust.com):
   mobile-first UI, release targets, infrastructure diagram, readonly types and
   api.ts fetch layer. Use for PureThrustWeb, landing, releases, infra diagram,
-  or thrustpure branding.
+  or PureThrust branding.
 ---
 
-# ThrustPure Web
+# PureThrust Web
 
 ## Instrucción maestra
 
@@ -23,7 +23,7 @@ Usa tipos readonly, hooks para datos, y `services/api.ts` para cualquier fetch. 
 | Biometrics mock | `public/api/biometrics.json` |
 | Productos (3) | `public/api/products.json` — parqueo, biometrics, videoRecognizing |
 | Logo mark | `public/logos/pht.png` — icono **tp** |
-| Logo wordmark | `public/logos/tp.png` — banner **thrust.pure** |
+| Logo wordmark | `public/logos/tp.png` — banner **pure.thrust** |
 | Diagrama | `components/infra/InfrastructureDiagram.tsx` |
 
 ## Añadir un release target

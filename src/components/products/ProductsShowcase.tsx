@@ -1,3 +1,4 @@
+import { isProductVisible } from '../../config/visibleProducts';
 import { useProducts } from '../../hooks/useProducts';
 import type { Product } from '../../types/products.types';
 import { SectionShell } from '../ui/SectionShell';
@@ -59,7 +60,7 @@ export function ProductsShowcase() {
       subtitle={
         state.status === 'success'
           ? state.data.sectionSubtitle
-          : 'Líneas de producto ThrustPure'
+          : 'Líneas de producto PureThrust'
       }
     >
       {state.status === 'loading' ? (
@@ -72,7 +73,7 @@ export function ProductsShowcase() {
       ) : null}
       {state.status === 'success' ? (
         <ul className="product-grid">
-          {state.data.products.map((product) => (
+          {state.data.products.filter((product) => isProductVisible(product.id)).map((product) => (
             <ProductCard
               key={product.id}
               product={product}

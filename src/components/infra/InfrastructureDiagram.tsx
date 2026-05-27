@@ -1,75 +1,35 @@
 import { useInfrastructure } from '../../hooks/useInfrastructure';
-import type { InfraLayer } from '../../types/infrastructure.types';
 import { SectionShell } from '../ui/SectionShell';
-
-const ICON_GLYPH: Record<string, string> = {
-  globe: '◉',
-  shield: '⛨',
-  gateway: '⇌',
-  scale: '⚖',
-  thread: '⫘',
-  box: '▣',
-  redis: '◎',
-  db: '⬡',
-  pipeline: '⟿',
-  chart: '◫',
-};
-
-function LayerColumn({ layer, isLast }: { layer: InfraLayer; isLast: boolean }) {
-  return (
-    <div className="infra-layer">
-      <span className="infra-layer__label">{layer.label}</span>
-      <div className="infra-layer__nodes">
-        {layer.nodes.map((node) => (
-          <article key={node.id} className="infra-node" data-node={node.id}>
-            <span className="infra-node__icon" aria-hidden="true">
-              {ICON_GLYPH[node.icon] ?? '•'}
-            </span>
-            <div>
-              <h4 className="infra-node__name">{node.name}</h4>
-              <p className="infra-node__tech">{node.tech}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-      {!isLast ? <div className="infra-connector" aria-hidden="true" /> : null}
-    </div>
-  );
-}
+import { ArchitectureOrbit } from './ArchitectureOrbit';
 
 export function InfrastructureDiagram() {
   const state = useInfrastructure();
 
+  const sectionTitle =
+    state.status === 'success'
+      ? (state.data.sectionTitle ?? 'ARQUITECTURA QUE MUEVE')
+      : 'ARQUITECTURA QUE MUEVE';
+  const sectionSubtitle =
+    state.status === 'success'
+      ? (state.data.sectionSubtitle ??
+        'El suelo técnico que sostiene cada release target')
+      : 'El suelo técnico que sostiene cada release target';
+
   return (
-    <SectionShell id="infra" title="Infraestructura" subtitle="Vista de capas y flujo de release">
+    <SectionShell
+      id="herramientas"
+      title={sectionTitle}
+      subtitle={sectionSubtitle}
+    >
       {state.status === 'loading' ? (
-        <p className="state state--loading">Cargando diagrama…</p>
+        <p className="state state--loading">Cargando arquitectura…</p>
       ) : null}
       {state.status === 'error' ? (
         <p className="state state--error" role="alert">
           {state.message}
         </p>
       ) : null}
-      {state.status === 'success' ? (
-        <div className="infra-diagram">
-          <header className="infra-diagram__head">
-            <h3>{state.data.title}</h3>
-            <p>{state.data.subtitle}</p>
-          </header>
-          <div className="infra-diagram__flow">
-            {state.data.layers.map((layer, index) => (
-              <LayerColumn
-                key={layer.id}
-                layer={layer}
-                isLast={index === state.data.layers.length - 1}
-              />
-            ))}
-          </div>
-          <p className="infra-diagram__footnote">
-            {state.data.connections.length} conexiones documentadas · datos desde API libre
-          </p>
-        </div>
-      ) : null}
+      {state.status === 'success' ? <ArchitectureOrbit layers={state.data.layers} /> : null}
     </SectionShell>
   );
 }

@@ -1,30 +1,27 @@
 {
   "platformName": "purethrust compras",
-  "tagline": "Carrito Redis / sesión y checkout virtual threads",
+  "tagline": "Compra de productos y cobro multibanco",
   "status": "in_progress",
   "version": "0.9.0",
   "executionStack": {
-    "title": "Stack de sesión y cobro",
-    "subtitle": "purethrust compras — no de purethrust parking",
+    "title": "Módulo de compra y cobro",
+    "subtitle": "Proyecto separado — agnóstico de parking, banking, publish y biometría",
     "items": [
       {
-        "id": "redis-cart",
-        "title": "Carrito Redis / sesión",
-        "description": "Sesión en Redis (userHash, create-cart, add/remove). Frontend VThreadsCart con estado optimista y rollback."
+        "id": "purchase",
+        "title": "Compra multibanco",
+        "description": "Compra de productos con medios de pago de diferentes bancos, alineados a la estructura."
+      },
+      {
+        "id": "cartera",
+        "title": "Cobro de cartera",
+        "description": "Se adapta como servicio de cobro de cartera, sin depender de un solo canal o producto."
       },
       {
         "id": "checkout-vt",
-        "title": "Checkout virtual threads",
-        "description": "Quarkus + JDK 21: orquestación de pago (/api/pay) con virtual threads para no bloquear operación en patio."
+        "title": "Checkout con alta demanda",
+        "description": "Quarkus + JDK 21: orquestación de pago (/api/pay) con virtual threads para alta concurrencia sin bloquear la operación."
       }
     ]
-  },
-  "integrations": [
-    "purethrust parking",
-    "purethrust banking gateway",
-    "purethrust publish",
-    "API Gateway Quarkus",
-    "Redis",
-    "Observability OTel"
-  ]
+  }
 }

@@ -1,5 +1,5 @@
 /** Título de marca compartido por todas las líneas de producto. */
-export const PRODUCT_BRAND_TITLE = 'purethrust';
+export const PRODUCT_BRAND_TITLE = 'PureThrust';
 
 /** Primera letra en mayúscula para nombres de línea (parking → Parking). */
 export function formatProductLine(line: string): string {

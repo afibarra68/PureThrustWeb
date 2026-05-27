@@ -17,5 +17,5 @@ export interface PublishPayload {
   readonly version: string;
   readonly channels: readonly PublishChannel[];
   readonly capabilities: readonly PublishCapability[];
-  readonly integrations: readonly string[];
+  readonly integrations?: readonly string[];
 }

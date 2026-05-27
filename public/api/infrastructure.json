@@ -1,6 +1,9 @@
 {
-  "title": "Arquitectura ThrustPure",
-  "subtitle": "El suelo técnico que sostiene cada release target",
+  "sectionTitle": "ARQUITECTURA QUE MUEVE",
+  "sectionSubtitle": "El suelo técnico que sostiene cada release target — capas conectadas al núcleo en movimiento continuo",
+  "orbitTitle": "ARQUITECTURA THRUSTPURE",
+  "title": "Arquitectura PureThrust",
+  "subtitle": "",
   "layers": [
     {
       "id": "edge",

@@ -1,6 +1,6 @@
 {
   "sectionTitle": "Productos",
-  "sectionSubtitle": "Seis líneas que empujan cada release target — del patio al board",
+  "sectionSubtitle": "Creamos infraestructura para que todo sea a la distancia de un clic en estas dependencias",
   "brandTitle": "purethrust",
   "products": [
     {
@@ -14,7 +14,7 @@
       "highlights": [
         "Arquitectura simplista: bajo demanda, base sólida"
       ],
-      "description": "Operación de estacionamiento en campo con UX mobile-first. Arquitectura simplista bajo demanda sobre la base sólida de AlParquear (config, caja, recibos, turnos). El stack (Redis, checkout) vive en purethrust compras.",
+      "description": "Operación de estacionamiento en campo con UX mobile-first. Arquitectura simplista bajo demanda sobre la base sólida de AlParquear (config, caja, recibos, turnos). Proyecto de campo independiente.",
       "architecture": {
         "title": "Arquitectura simplista",
         "subtitle": "Bajo demanda — ejecución sobre una base sólida",
@@ -64,43 +64,18 @@
     {
       "id": "compras",
       "name": "compras",
-      "tagline": "Carrito Redis / sesión y checkout virtual threads",
+      "tagline": "Compra de productos y cobro multibanco",
       "status": "in_progress",
       "version": "0.9.0",
       "icon": "compras",
       "detailAnchor": "#product-compras",
       "highlights": [
-        "Carrito Redis / sesión",
-        "Checkout virtual threads",
-        "Estado optimista y rollback",
-        "Orquestación /api/pay en JDK 21"
+        "Medios de pago de distintos bancos",
+        "Alineado a la estructura del negocio",
+        "Adaptable como cobro de cartera",
+        "Checkout con alta demanda (JDK 21)"
       ],
-      "description": "Sesión de compra y cobro del stack purethrust: carrito en Redis (userHash, create-cart, add/remove) y checkout con virtual threads para alta concurrencia en patio.",
-      "architecture": {
-        "title": "Sesión y cobro",
-        "subtitle": "Base sólida del stack — independiente del parqueo y de biometría",
-        "principles": ["Sesión Redis", "Virtual threads", "Alta concurrencia"],
-        "layers": [
-          {
-            "id": "session",
-            "label": "Sesión",
-            "name": "Carrito Redis / sesión",
-            "summary": "userHash, create-cart, add/remove con update optimista y rollback"
-          },
-          {
-            "id": "checkout",
-            "label": "Cobro",
-            "name": "Checkout virtual threads",
-            "summary": "Orquestación /api/pay en JDK 21 — sin bloquear operación en patio"
-          },
-          {
-            "id": "gateway",
-            "label": "API",
-            "name": "Gateway Quarkus",
-            "summary": "Expone carrito y pago al frontend y a purethrust parking"
-          }
-        ]
-      }
+      "description": "Módulo general para realizar compras de productos con medios de pago de diferentes bancos, alineados a la estructura. Se adapta como servicio de cobro de cartera. Proyecto separado, agnóstico del resto del ecosistema."
     },
     {
       "id": "banking",
@@ -116,7 +91,7 @@
         "Libro de puntos y cupones auditable",
         "Enlaza publish, compras y checkout"
       ],
-      "description": "Gateway bancario del stack purethrust: servicios de incentivo de compras que aplican beneficios en el cierre de venta y orquestan pagos sin reemplazar purethrust compras. En proceso.",
+      "description": "Gateway bancario del stack purethrust: servicios de incentivo de compras que aplican beneficios en el cierre de venta y orquestan pagos sin reemplazar purethrust compras.",
       "architecture": {
         "title": "Banking gateway",
         "subtitle": "Incentivos de compra — capa entre campañas y cobro",
@@ -156,10 +131,10 @@
         "Token de confianza pre-deploy",
         "Auditoría inmutable"
       ],
-      "description": "Gate biométrico para releases: identidad verificada antes de mover un release target. En proceso — sin carrito ni checkout (eso es purethrust compras).",
+      "description": "Gate biométrico para releases: identidad verificada antes de mover un release target — sin carrito ni checkout (eso es purethrust compras).",
       "architecture": {
         "title": "Gate biométrico",
-        "subtitle": "Verificación antes del deploy — en proceso",
+        "subtitle": "Verificación antes del deploy",
         "principles": ["purethrust biometrics", "Edge", "Auditoría"],
         "layers": [
           {
@@ -180,49 +155,18 @@
     {
       "id": "publish",
       "name": "publish",
-      "tagline": "Incentivos, publicidad y compras en realismo electrónico",
+      "tagline": "Red social de compras y gestión de contenido",
       "status": "in_progress",
       "version": "0.1.0",
       "icon": "publish",
       "detailAnchor": "#product-publish",
       "highlights": [
-        "Incentivación al retail y engagement",
-        "Publicidad de productos en pantallas",
-        "Compras conectadas a purethrust compras",
-        "App móvil y web"
+        "Publicar fotos y artículos en la red",
+        "Red social de compras en línea",
+        "Gestión self-service del cliente",
+        "Contenido centralizado para la red"
       ],
-      "description": "Futura app de incentivación ligada al realismo electrónico: publicidad de productos y flujos de compra en vallas y pantallas digitales. Contará con app móvil y web; incentivos y pagos vía purethrust banking gateway; sesión y checkout en purethrust compras.",
-      "architecture": {
-        "title": "Publish — móvil y web",
-        "subtitle": "En proceso — campañas, catálogo y compras en signage",
-        "principles": ["Incentivos", "Signage", "Móvil + Web"],
-        "layers": [
-          {
-            "id": "signage",
-            "label": "Pantallas",
-            "name": "Realismo electrónico",
-            "summary": "Vallas y digital signage: creativos, productos y métricas de impacto"
-          },
-          {
-            "id": "incentives",
-            "label": "Incentivos",
-            "name": "Campañas y recompensas",
-            "summary": "Programas que enlazan visualización en pantalla con acción y compra"
-          },
-          {
-            "id": "mobile",
-            "label": "Móvil",
-            "name": "App móvil",
-            "summary": "Experiencia en dispositivo: descubrir, incentivar y comprar"
-          },
-          {
-            "id": "web",
-            "label": "Web",
-            "name": "Web",
-            "summary": "Gestión de campañas, catálogo y storefront en navegador"
-          }
-        ]
-      }
+      "description": "App para gestionar contenido en la red: publicar fotos y artículos, con dinámica de red social de compras en línea y gestión autónoma (self-service) del cliente."
     },
     {
       "id": "video",

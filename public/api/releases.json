@@ -1,32 +1,86 @@
 {
-  "brand": "ThrustPure",
+  "brand": "Thrust Pure",
   "domain": "thrustpure.com",
-  "pivot": "Release targets con tracción real",
-  "updatedAt": "2026-05-21",
   "targets": [
     {
-      "id": "rel-2026-q2",
-      "name": "Platform Core v1",
-      "version": "1.0.0",
+      "id": "phase-requirements",
+      "order": 1,
+      "name": "Análisis de requerimientos",
+      "version": "01",
+      "status": "shipped",
+      "eta": "Inicio de ciclo",
+      "highlights": [
+        "Descubrimiento y priorización con negocio",
+        "Historias y criterios de aceptación claros",
+        "Alcance acotado por release target"
+      ]
+    },
+    {
+      "id": "phase-development",
+      "order": 2,
+      "name": "Desarrollo",
+      "version": "02",
       "status": "in_progress",
-      "eta": "2026-06-30",
-      "highlights": ["API gateway estable", "Observabilidad base", "Redis session cart"]
+      "eta": "Sprints ágiles",
+      "highlights": [
+        "Scrum / Kanban con entregas cortas",
+        "Re-análisis de requerimientos en cada iteración",
+        "Integración continua desde el primer commit",
+        "Feedback rápido que ajusta alcance y prioridades"
+      ]
     },
     {
-      "id": "rel-2026-q3",
-      "name": "Edge & Scale",
-      "version": "1.1.0",
-      "status": "planned",
-      "eta": "2026-09-15",
-      "highlights": ["CDN global", "Autoscaling K8s", "SLO 99.9%"]
+      "id": "phase-documentation",
+      "order": 3,
+      "name": "Documentación clara",
+      "version": "03",
+      "status": "in_progress",
+      "eta": "En paralelo al build",
+      "highlights": [
+        "Runbooks y ADRs al día",
+        "APIs y contratos versionados",
+        "Onboarding sin fricción para el equipo"
+      ]
     },
     {
-      "id": "rel-2026-q4",
-      "name": "Enterprise Suite",
-      "version": "2.0.0",
+      "id": "phase-deploy-gate",
+      "order": 4,
+      "name": "Barrera de despliegue",
+      "version": "04",
       "status": "planned",
-      "eta": "2026-12-01",
-      "highlights": ["Multi-tenant", "SSO", "Audit trail"]
+      "eta": "Pre-producción",
+      "highlights": [
+        "Quality gates y revisiones automatizadas",
+        "Staging espejo de producción",
+        "Go / no-go con criterios explícitos"
+      ]
+    },
+    {
+      "id": "phase-infrastructure",
+      "order": 5,
+      "name": "Infraestructura lista",
+      "version": "05",
+      "status": "planned",
+      "eta": "Release day",
+      "highlights": [
+        "Observabilidad, escalado y red listos",
+        "Secrets y configuración por entorno",
+        "SLO definidos antes del tráfico real"
+      ]
+    },
+    {
+      "id": "phase-support",
+      "order": 6,
+      "name": "Soporte en el tiempo",
+      "version": "06",
+      "status": "shipped",
+      "eta": "Continuo",
+      "highlights": [
+        "Gestión de cambios sobre el tiempo (incidentes, mejoras, versiones)",
+        "Monitoreo post-release y respuesta",
+        "Re-análisis alimenta el siguiente release target",
+        "Tracción medida en producción"
+      ]
     }
   ]
 }
